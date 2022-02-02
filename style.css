@@ -116,3 +116,6 @@ body.terminal {
    --color-hit: #33ff00;
    --color-splash: #ffbb00;
 }
+img{
+   width: 100%;
+}
