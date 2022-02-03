@@ -34,6 +34,7 @@ strong {
 .row {
    background-color: var(--color-two);
    display: flex;
+  
 }
 
 .cell {
@@ -119,3 +120,10 @@ body.terminal {
 img{
    width: 100%;
 }
+.masked{
+   display: none;
+}
+.visible{
+   display: block;
+}
+
