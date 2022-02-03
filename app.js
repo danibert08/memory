@@ -1,88 +1,68 @@
-// Générer le plateau de jeu
+// Pour générer le plateau de jeu nous créons un tableau qui contiendra chaque image en double
 
-// let grid = [
-//       ['', 'b', 'b', 'b', '',''],
-//       ['', '', '', '', '', '',''],
-//       ['', '', '', '', '', '',''],
-//       ['', '', '', '', '', '',''],
-//       ['', '', '', '', '', '',''],
-//       ['', '', '', '', '', '',''],
-//  ];
- 
-
-// const gridHeaders = {
-//     rows : [1,2,3,4,5,6],
-//     columns : ['A','B','C','D','E','F']
-// };
-
-// function displayLine(line){
-//     let lineToDisplay = " ";
-//     for (let columnIndex= 0; columnIndex < line.length; columnIndex++){
-//             let currentChar = line[columnIndex];
-//             if(line[columnIndex] === ""){
-//                 lineToDisplay += '~';
-//             }else{
-//                 lineToDisplay += currentChar;
-                
-//             }
-//            lineToDisplay += " ";     
-//     }
-//     return (lineToDisplay);
-// };
-
-// function displayGrid(){
-//     console.log('  ' + gridHeaders.columns.join(' '));
-//         for(let rowIndex=0; rowIndex<grid.length; rowIndex++){
-        
-//        let row  =  gridHeaders.rows[rowIndex];
-//        row += ' ' + displayLine(grid[rowIndex]);
-//        console.log(row);
-//     }
-// };
-// displayGrid();
-// Générer la position aléatoire des images
 var imagesName=[];
-for(let i=1; i < 19; i++){
+for(let i=1; i < 15; i++){
     imagesName.push(i);
     imagesName.push(i);
 }
 
-for(var position=imagesName.length-1; position>=0 ; position--){
+for(var position = imagesName.length-1; position>=0 ; position--){
 	
-	//hasard reçoit un nombre entier aléatoire entre 0 et position
-	var randomPosition=Math.floor(Math.random()*(position+1));
-	//Echange
+    // pour chaque image du tableau en commençant par la dernière, on crée une position alétoire randomPosition
+	// randomPosition reçoit un nombre entier aléatoire entre 0 et position
+	var randomPosition = Math.floor(Math.random()*(position+1));
+
+	// L'image inverse sa position avec la celle qui se trouve à la randomPosition
 	var initialPosition=imagesName[position];
 	imagesName[position]=imagesName[randomPosition];
 	imagesName[randomPosition]=initialPosition;
-    
 }
 
+// Notre tableau imagesName est désormais de la forme [1=>12, 2=>18, 3=>1, 4=>5, 5=>28 ...]
+// Pour la suite du jeu, nous considérons que l'image dont l'id est 1 appartient à la case dont l'id est 1, que l'image dont l'id est 5 appartient à la case dont l'id est 5.....
+// On pourrait faire monter toute les images dans le plateau de jeu, et les mettre en display none, cependant, pour éviter qu'un petit malin aille les découvrir dans l'inspecteur du navigateur,
+// nous ne les monterons sur le plateau que lorsqu'une case sera cliquée.
+// Si les deux images sont égales nous les ferons rester, sinon, nous les supprimerons du plateau (mais elle resteront toujours affectées à leur case respective.)
 
+// On récupère les cases du plateau de jeu
 let cells = document.getElementsByClassName('cell')
+
+// On place un écouteur d'évènement "click" sur chaque case du jeu
 for(let cell of cells){
     cell.addEventListener("click", showImage);
 }
-for(let cell of cells){
-    var img = document.createElement('img');
-    //img.classList.add('visible');
-    let idCell = cell.id
-    img.src ='img/' + imagesName[idCell] + '.png'
-    cell.appendChild(img);
-    img.classList.add('masked');
-}
-    
+
+
+// for(let cell of cells){
+//     var img = document.createElement('img');
+//     let idCell = cell.id
+//     img.src ='img/' + imagesName[idCell] + '.png'
+//     cell.appendChild(img);
+//     img.classList.add('masked');
+// }
+
+// On créé un tableau d'items à comparer vide qui nous permettra deux choses : 
+// 1/ comptabiliser les clicks pour comparer les images tous les deux clicks
+// 2/ stocker l'id de la case clickée afin d'y afficher l'image du même id
 let compareArray = []
 
-    function showImage(ev){
-        let target = document.getElementById(ev.target.id)
+    function showImage(ev){ // on récupère l'évènement au travers du paramètre ev
+        let idClicked = ev.target.id;// à partir de l'évènement on récupère l'id de la case cliquée
+        let target = document.getElementById(idClicked) // On récupère dans target l'élément cliqué ex: <div id="0" class="cell" afin d'accèder plus bas à son élément enfant "img"
+
+        // si le tableau est vide on est au premier click, 
         if(compareArray.length == 0){
-        target.firstChild.classList.remove('masked');
-        compareArray.push(ev.target.id);
-        
+            var img = document.createElement('img');
+            img.src ='img/' + imagesName[idClicked] + '.png'
+            target.appendChild(img);
+            //target.firstChild.classList.remove('masked');
+            compareArray.push(idClicked);
         }else{
-            target.firstChild.classList.remove('masked');
-            compareArray.push(ev.target.id);
+            var img = document.createElement('img');
+            img.src ='img/' + imagesName[idClicked] + '.png'
+            target.appendChild(img);
+            //target.firstChild.classList.remove('masked');
+            compareArray.push(idClicked);
             compareImage(compareArray[0], compareArray[1]);
             console.log(compareArray);
             compareArray = [];
@@ -91,13 +71,15 @@ let compareArray = []
     function compareImage(id1, id2){
     let target1 = document.getElementById(id1)
     let target2 = document.getElementById(id2)
-    target1.firstChild.classList.remove('masked')
-    target2.firstChild.classList.remove('masked')
+    //target1.firstChild.classList.remove('masked')
+    //target2.firstChild.classList.remove('masked')
     if (target1.firstChild.src != target2.firstChild.src){
         console.log(target1.firstChild.src.split('/').pop() , target2.firstChild.src.split('/').pop())
         setTimeout(function(){
-        target1.firstChild.classList.add('masked')
-        target2.firstChild.classList.add('masked')
+            target1.removeChild(target1.firstChild);
+            target2.removeChild(target2.firstChild);
+        //target1.firstChild.classList.add('masked')
+        //target2.firstChild.classList.add('masked')
         }, 1500);
     }
 }
