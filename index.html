@@ -26,7 +26,6 @@
         <button id="launch">Lancer une partie</button>
     </div>
 
-    <div id="remaining"><span id="minutes" class="time"></span><span id="seconds" class="time"></span></div>
     <div id="grid">
         <section class="row">
             <div class="cell" id="0"></div>
@@ -65,7 +64,16 @@
             <div class="cell" id="27"></div>
         </section>
     </div>
+    <div id="remaining">
+        <span id="minutes" class="time"></span>
+        <span id="seconds" class="time"></span>
+    </div>
+    <div id="progressBar">
+        <div id="bar" class="bar"></div>		
+    </div>
+
     <script src="JS/app.js"></script>
+    <script src="JS/game.js"></script>
     <script src="JS/theme.js"></script>
     <script src="JS/timing.js"></script>
 </body>

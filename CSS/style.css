@@ -1,12 +1,3 @@
-/* html {
-   --cell-size: 50px;
-   --color-one: #0bad93;
-   --color-two: #fffdd8;
-   --color-hit: green;
-   --color-splash: red;
-   font-family: "Lucida Console", sans-serif;
-   text-align: center;
-} */
 
 html {
    --cell-size: 100px;
@@ -40,6 +31,10 @@ strong {
    font-weight: bold;
 }
 
+#launch{
+   margin: 2em auto;
+}
+
 #grid {
    font-size: 14px;
    display: inline-block;
@@ -67,48 +62,15 @@ strong {
    border-right: 1px solid var(--color-one);
 }
 
-header.cell {
-   background-color: var(--color-one);
-   color: var(--color-two);
-   font-weight: bold;
-   text-align: center;
-   font-size: 2rem;
-}
-
-.row:last-child .cell {
+/* .row:last-child .cell {
    border-bottom: 0;
-}
+} */
 
-.row .cell:last-child {
+/* .row .cell:last-child {
    border-right: 0;
-}
-
-#actions {
-   display: none;
-   width: 50%;
-   height: 120px;
-   color: var(--color-one);
-   border: 1px solid black;
-   padding: 0.5rem;
-   margin: 1rem auto;
-   max-height: 3rem;
-   overflow: auto;
-   font-size: 1rem;
-}
-
-#hide-actions {
-   display :none;
-}
-
-/* cells classes */
-.cell.hit {
-   background-color: var(--color-hit);
-   font-size: 0;
-}
-
-.cell.splash {
-   background-color: var(--color-splash);
-   font-size: 0;
+} */
+img{
+   width: 100%;
 }
 
 /* themes */
@@ -134,18 +96,6 @@ body.terminal {
    --color-hit: #33ff00;
    --color-splash: #ffbb00;
 }
-img{
-   width: 100%;
-}
-.masked{
-   display: none;
-}
-.visible{
-   display: block;
-}
-#launch{
-   margin: 2em auto;
-}
 
 .theme{
    display: flex;
@@ -156,3 +106,30 @@ img{
 #themeChange{
    margin-left: 10px;
 }
+
+
+
+
+   /*  progress Bar*/
+#progressBar
+{
+	width:700px;
+	margin:auto;
+	margin-top:50px;
+}
+@media (max-width : 750px){
+  #progressBar{
+   width: 350px;
+   }
+}
+
+.bar
+{
+	color:#fff;
+	background-color:#2b579a;
+   width: 0;
+   border-radius: 10px;
+	height: 25px;
+	padding-top:15px;
+}
+
