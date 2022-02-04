@@ -1,4 +1,4 @@
-html {
+/* html {
    --cell-size: 50px;
    --color-one: #0bad93;
    --color-two: #fffdd8;
@@ -6,6 +6,23 @@ html {
    --color-splash: red;
    font-family: "Lucida Console", sans-serif;
    text-align: center;
+} */
+
+html {
+   --cell-size: 100px;
+   --color-one: #000;
+   --color-two: #aaa;
+   --color-hit: #aaa;
+   --color-splash: #666;
+   font-family: "Lucida Console", sans-serif;
+   text-align: center;
+}
+
+/* On pense réduire la taille du jeu sur petits écrans*/
+@media (max-width : 750px){
+   html{
+   --cell-size: 50px;
+   }
 }
 
 h3 {
@@ -126,4 +143,16 @@ img{
 .visible{
    display: block;
 }
+#launch{
+   margin: 2em auto;
+}
 
+.theme{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#themeChange{
+   margin-left: 10px;
+}
