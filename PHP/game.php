@@ -4,13 +4,26 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="CSS/reset.css" class="css">
-   <link rel="stylesheet" href="CSS/style.css" class="css">
+   <link rel="stylesheet" href="/CSS/reset.css" class="css">
+   <link rel="stylesheet" href="/CSS/style.css" class="css">
    <title>Document</title>
 </head>
 <body id="body">
     <h3>Jeu de mémoire</h3>
     <h6>(Découvrez les cartes 2 par 2 pour reconstituer les paires)</h6>
+    <div class="stats">
+        <h4><u>Meilleurs temps</u></h4>
+        <ul>
+            <li> <?php
+            for($i=0;$i<count($tab);$i++){
+               echo " - ".
+               $tab[$i]["score"]
+            ."<br />";
+            }
+         ?> </li>
+       
+        </ul>
+    </div>
     <div class="theme">
         <h2>Thème</h2>
         <div>
@@ -72,9 +85,9 @@
         <div id="bar" class="bar"></div>		
     </div>
 
-    <script src="JS/app.js"></script>
-    <script src="JS/game.js"></script>
-    <script src="JS/theme.js"></script>
-    <script src="JS/timing.js"></script>
+    <script src="/JS/app.js"></script>
+    <script src="/JS/game.js"></script>
+    <script src="/JS/theme.js"></script>
+    <script src="/JS/timing.js"></script>
 </body>
 </html>

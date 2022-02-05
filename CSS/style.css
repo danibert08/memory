@@ -3,8 +3,8 @@ html {
    --cell-size: 100px;
    --color-one: #000;
    --color-two: #aaa;
-   --color-hit: #aaa;
-   --color-splash: #666;
+   --color-three: #fff;
+   --color-four: #666;
    font-family: "Lucida Console", sans-serif;
    text-align: center;
 }
@@ -70,28 +70,55 @@ img{
    width: 100%;
 }
 
+/* Stats */
+
+.stats{
+  background: var(--color-two);
+  width: 15%;
+  margin: 1rem auto ;
+  padding: 1rem 0;
+}
+@media (max-width : 900px){
+   .stats{
+   width: 25%;
+   }
+}
+ .stats h4{
+    color: var(--color-three);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+ }
+
+ .stats ul li{
+   color: var(--color-three);
+   font-weight: bold;
+   margin-bottom: 1rem;
+}
+
+
 /* themes */
 body.f0f {
    --color-one: #ff00ff;
    --color-two: #00ffff;
-   --color-hit: #00ff00;
-   --color-splash:#ffaa00;
+   --color-three: #ff00fffd;
+   --color-four:#ffaa00;
 }
 
 body.black-and-white {
    --color-one: #000;
    --color-two: #fff;
-   --color-hit: #aaa;
-   --color-splash: #666;
+   --color-three: #000;
+   --color-four: #666;
 }
 
 body.terminal {
-   background-color: black;
-   color: #33ff00;
+   
+  
    --color-one: #33ff00;
    --color-two: #000;
-   --color-hit: #33ff00;
-   --color-splash: #ffbb00;
+   --color-three: #33ff00;
+   --color-four: #ffbb00;
 }
 
 .theme{
@@ -111,8 +138,7 @@ body.terminal {
 #progressBar
 {
 	width:700px;
-	margin:auto;
-	margin-top:50px;
+	margin: 50px auto;
 }
 @media (max-width : 750px){
   #progressBar{
