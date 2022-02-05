@@ -1,13 +1,14 @@
 const app = {
    init: function () {
-     // We load the component mode.js.
-     mode.init();
+     //initialisation du jeu
+     game.init();
  
-     // We load the component angelInscrption.js.
-     registration.init();
- 
-     // We load the component updateUserProfil.js.
-     userProfile.init();
+     //Initialisation du chrono
+     timing.init();
+
+     //Initialisation du thème
+     theme.init();
+
    },
  };
  

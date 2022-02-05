@@ -17,10 +17,14 @@ html {
 }
 
 h3 {
-   margin: 1rem 0;
+   margin: 1rem 0 0.5rem;
    font-size: 2rem;
    font-weight: bold;
    color: var(--color-one);
+}
+
+h6 {
+   margin: 0 0 1rem;
 }
 
 p {
@@ -62,13 +66,6 @@ strong {
    border-right: 1px solid var(--color-one);
 }
 
-/* .row:last-child .cell {
-   border-bottom: 0;
-} */
-
-/* .row .cell:last-child {
-   border-right: 0;
-} */
 img{
    width: 100%;
 }

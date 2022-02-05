@@ -1,13 +1,14 @@
-// On récupère le selct du thème et on lui affecte un écouteur d'évènement au changement
-const themeChange = document.getElementById('themeChange');
-themeChange.addEventListener("change", changeTheme);
+const theme = {
+   changeElement: document.getElementById('themeChange'),// On récupère le select du thème pour lui affecter un écouteur d'évènement au changement
+   bodyElement: document.getElementById('body'),// récupération de l'élément "body"
 
-// A chaque changement
-function changeTheme(ev){
+   init: function(){
+      theme.changeElement.addEventListener("change", theme.changeTheme);
+   },
 
-   let body = document.getElementById('body'); // récupération de l'élément "body"
-   body.removeAttribute('class'); // suppression de l'attribut "class", donc du thème précédent
-   body.classList.add(ev.target.value); // Ajout de l'attribut "class" avec en valeur celle du thème sélectionné
+   changeTheme: function(ev){
+      theme.bodyElement.removeAttribute('class'); // suppression de l'attribut "class", donc du thème précédent
+      theme.bodyElement.classList.add(ev.target.value); // Ajout de l'attribut "class" avec en valeur celle du thème sélectionné
+   }
 }
-
-// La nouvelle valeur de l'attibut "class" renvoie au CSS pour modifier les couleurs du jeu
+// La nouvelle valeur de l'attribut "class" renvoie au CSS pour modifier les couleurs du jeu
