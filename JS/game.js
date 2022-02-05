@@ -39,10 +39,7 @@ const game = {
       // nous ne les monterons sur le plateau que lorsqu'une case sera cliquée.
       // Si les deux images sont égales nous les ferons rester, sinon, nous les supprimerons du plateau (mais elle resteront toujours affectées à leur case respective.)
 
-      // On place un écouteur d'évènement "click" sur chaque case du jeu
-      for(let cell of game.cells){
-         cell.addEventListener("click", game.handleClickShowImage);
-      }
+      
    },
 
    handleClickShowImage: function(ev){// on récupère l'évènement au travers du paramètre ev
@@ -88,8 +85,6 @@ const game = {
          console.log("avant " + timing.count)
          window.location.href = "index.php?score=" + timing.count;
          timing.resetTime();
-         console.log("après " + timing.count)
-         
       }
    }
 }

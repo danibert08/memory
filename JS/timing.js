@@ -12,7 +12,10 @@ const timing = {
       timing.button.addEventListener('click', timing.timer);
    },
 
-   timer: function(){
+   timer: function(){// On place un écouteur d'évènement "click" sur chaque case du jeu
+      for(let cell of game.cells){
+         cell.addEventListener("click", game.handleClickShowImage);
+      }
          timing.countUp = setInterval(timing.displayCount, 1000); //On lance le compteur de temps en seconde
          timing.barUp = setInterval(timing.displayProgressBar, 1000); // on lance la progress bar
    },
@@ -43,5 +46,6 @@ const timing = {
       
       // On relance la fonction d'initialisation pour préparer le prochain jeu
       game.init();
+      timing.init();
    },
 }
