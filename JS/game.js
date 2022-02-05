@@ -85,7 +85,11 @@ const game = {
    checkEnd: function(){
       if (game.imgElements.length == 28 ){
          alert("Bravooooo !!! Vous avez gagné avec un temps de " + timing.count + " secondes !!! ")
+         console.log("avant " + timing.count)
+         window.location.href = "index.php?score=" + timing.count;
          timing.resetTime();
+         console.log("après " + timing.count)
+         
       }
    }
 }

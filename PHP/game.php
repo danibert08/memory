@@ -14,14 +14,13 @@
     <div class="stats">
         <h4><u>Meilleurs temps</u></h4>
         <ul>
-            <li> <?php
-            for($i=0;$i<count($tab);$i++){
-               echo " - ".
-               $tab[$i]["score"]
-            ."<br />";
-            }
-         ?> </li>
-       
+            <li> 
+                <?php
+                    for($i=0;$i<count($tab);$i++){
+                        echo " - " . $tab[$i]["score"] . "<br />";
+                    }
+                ?> 
+            </li>
         </ul>
     </div>
     <div class="theme">
@@ -76,10 +75,6 @@
             <div class="cell" id="26"></div>
             <div class="cell" id="27"></div>
         </section>
-    </div>
-    <div id="remaining">
-        <span id="minutes" class="time"></span>
-        <span id="seconds" class="time"></span>
     </div>
     <div id="progressBar">
         <div id="bar" class="bar"></div>		
