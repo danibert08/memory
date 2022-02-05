@@ -79,7 +79,6 @@
     <div id="progressBar">
         <div id="bar" class="bar"></div>		
     </div>
-
     <script src="/JS/app.js"></script>
     <script src="/JS/game.js"></script>
     <script src="/JS/theme.js"></script>

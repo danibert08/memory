@@ -10,10 +10,7 @@ const game = {
    // fonction d'initialisation du jeu
    init: function () {
      
-      // suppression des images du DOM d'un éventuel précédent jeu
-      while(game.imgElements.length > 0){
-      game.imgElements[0].remove();
-      }
+      
         
       // Remplissage du tableau d'images "imagesName"
       for(let i=1; i < 15; i++){
@@ -71,7 +68,7 @@ const game = {
               target1.removeChild(target1.firstChild);
               target2.removeChild(target2.firstChild);
           game.compareArray = [];
-          }, 1000);
+          }, 800);
       }else{
           //sinon, les deux images sont identiques, donc on les liasse affichée, et l'on vide le tableau de comparaison
          game.compareArray = [];
@@ -82,8 +79,7 @@ const game = {
    checkEnd: function(){
       if (game.imgElements.length == 28 ){
          alert("Bravooooo !!! Vous avez gagné avec un temps de " + timing.count + " secondes !!! ")
-         console.log("avant " + timing.count)
-         window.location.href = "index.php?score=" + timing.count;
+         window.location.href = "PHP/datas.php?score=" + timing.count;// On transmets compteur au fichier datas.php qui va l'enregistrer en bdd
          timing.resetTime();
       }
    }

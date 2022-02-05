@@ -13,11 +13,13 @@ const timing = {
    },
 
    timer: function(){// On place un écouteur d'évènement "click" sur chaque case du jeu
-      for(let cell of game.cells){
-         cell.addEventListener("click", game.handleClickShowImage);
-      }
+      
          timing.countUp = setInterval(timing.displayCount, 1000); //On lance le compteur de temps en seconde
          timing.barUp = setInterval(timing.displayProgressBar, 1000); // on lance la progress bar
+         
+         for(let cell of game.cells){
+            cell.addEventListener("click", game.handleClickShowImage);
+         }
    },
 
    displayCount: function(){
@@ -36,14 +38,20 @@ const timing = {
       }
    },
     
-
     resetTime: function() {
       clearInterval(timing.barUp)
       clearInterval(timing.countUp);
+      for(let cell of game.cells){
+         cell.removeEventListener("click", game.handleClickShowImage);
+      }
       timing.count = 0;
       timing.barWidth = 0;
       timing.barElement.style.width = 0 + "%";
-      
+      game.compareArray = [];
+      // suppression des images du DOM d'un éventuel précédent jeu
+      while(game.imgElements.length > 0){
+         game.imgElements[0].remove();
+         }
       // On relance la fonction d'initialisation pour préparer le prochain jeu
       game.init();
       timing.init();

@@ -42,7 +42,7 @@ strong {
 #grid {
    font-size: 14px;
    display: inline-block;
-   margin: 1rem 0;
+   margin: 1rem 0 0;
 
    border: 1px solid var(--color-one);
 }
@@ -113,8 +113,7 @@ body.black-and-white {
 }
 
 body.terminal {
-   
-  
+
    --color-one: #33ff00;
    --color-two: #000;
    --color-three: #33ff00;
@@ -138,7 +137,7 @@ body.terminal {
 #progressBar
 {
 	width:700px;
-	margin: 50px auto;
+	margin: 20px auto;
 }
 @media (max-width : 750px){
   #progressBar{
