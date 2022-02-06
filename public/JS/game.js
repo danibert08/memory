@@ -61,12 +61,12 @@ const game = {
   
       // on compare le src du premier enfant de la div, donc de l'image qui à été montée, si elles sont différentes
       if (target1.firstChild.src != target2.firstChild.src){
-          // on la garde affichée une seconde afin de pouvoir la mémoriser, avant de la faire disparaître du DOM, et l'on vide le tableau de comparaison pour le coup suivant
+          // on la garde affichée une demi seconde afin de pouvoir la mémoriser, avant de la faire disparaître du DOM, et l'on vide le tableau de comparaison pour le coup suivant
           setTimeout(function(){
               target1.removeChild(target1.firstChild);
               target2.removeChild(target2.firstChild);
           game.compareArray = [];
-          }, 800);
+          }, 500);
       }else{
           //sinon, les deux images sont identiques, donc on les liasse affichée, et l'on vide le tableau de comparaison
          game.compareArray = [];
