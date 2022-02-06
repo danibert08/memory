@@ -77,7 +77,7 @@ const game = {
    checkEnd: function(){
       if (game.imgElements.length == 28 ){
          alert("Bravooooo !!! Vous avez gagné avec un temps de " + timing.count + " secondes !!! ")
-         window.location.href = "PHP/datas.php?score=" + timing.count;// On transmets compteur au fichier datas.php qui va l'enregistrer en bdd
+         window.location.href = "/datas/" + timing.count;// On transmets compteur au fichier datas.php qui va l'enregistrer en bdd
          game.resetAll();
       }
    },
