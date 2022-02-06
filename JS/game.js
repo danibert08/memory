@@ -9,9 +9,7 @@ const game = {
    compareArray: [],
    // fonction d'initialisation du jeu
    init: function () {
-     
-      
-        
+  
       // Remplissage du tableau d'images "imagesName"
       for(let i=1; i < 15; i++){
          game.imagesName.push(i);
@@ -80,7 +78,27 @@ const game = {
       if (game.imgElements.length == 28 ){
          alert("Bravooooo !!! Vous avez gagné avec un temps de " + timing.count + " secondes !!! ")
          window.location.href = "PHP/datas.php?score=" + timing.count;// On transmets compteur au fichier datas.php qui va l'enregistrer en bdd
-         timing.resetTime();
+         game.resetAll();
       }
-   }
+   },
+
+   resetAll: function() {
+      clearInterval(timing.barUp)
+      clearInterval(timing.countUp);
+      for(let cell of game.cells){
+         cell.removeEventListener("click", game.handleClickShowImage);
+      }
+      timing.count = 0;
+      timing.barWidth = 0;
+      timing.barElement.style.width = 0 + "%";
+      game.compareArray = [];
+      game.imagesName = [];
+      // suppression des images du DOM d'un éventuel précédent jeu
+      while(game.imgElements.length > 0){
+         game.imgElements[0].remove();
+         }
+      // On relance la fonction d'initialisation pour préparer le prochain jeu
+      game.init();
+      timing.init();
+   },
 }

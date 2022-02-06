@@ -34,26 +34,9 @@ const timing = {
           timing.barElement.style.width = timing.barWidth + "%";
       }else{
          alert('Désolé, vous avez perdu....!!');
-         timing.resetTime();
+         game.resetAll();
       }
    },
     
-    resetTime: function() {
-      clearInterval(timing.barUp)
-      clearInterval(timing.countUp);
-      for(let cell of game.cells){
-         cell.removeEventListener("click", game.handleClickShowImage);
-      }
-      timing.count = 0;
-      timing.barWidth = 0;
-      timing.barElement.style.width = 0 + "%";
-      game.compareArray = [];
-      // suppression des images du DOM d'un éventuel précédent jeu
-      while(game.imgElements.length > 0){
-         game.imgElements[0].remove();
-         }
-      // On relance la fonction d'initialisation pour préparer le prochain jeu
-      game.init();
-      timing.init();
-   },
+    
 }
