@@ -85,6 +85,8 @@ const game = {
    resetAll: function() {
       clearInterval(timing.barUp)
       clearInterval(timing.countUp);
+      timing.barUp = undefined; // La remise à undefined nous servira à bloquer l'action du bouton "launch" si une partie est en cours.
+    
       for(let cell of game.cells){
          cell.removeEventListener("click", game.handleClickShowImage);
       }
