@@ -33,7 +33,7 @@ class MainController extends CoreController{
       $newData->setScore($score);
       $newData->save(); // On l'insère en BDD
    
-       unset($_POST); // On vide la variable $_GET
+       unset($_POST); // On vide la variable $_POST
    }
     
 }

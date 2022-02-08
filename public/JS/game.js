@@ -77,7 +77,7 @@ const game = {
    checkEnd: function(){
       if (game.imgElements.length == 28 ){
          alert("Bravooooo !!! Vous avez gagné avec un temps de " + timing.count + " secondes !!! ")
-        // window.location.href = "/datas/" + timing.count;// On transmets compteur au fichier datas.php qui va l'enregistrer en bdd
+        // Par une requête Ajax, on transmets en POST la variable timing.count compteur a l'URL /datas/ qui va l'enregistrer en bdd
         $.ajax({
            url: '/datas/',
            type: 'POST',
