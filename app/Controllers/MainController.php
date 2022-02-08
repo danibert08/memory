@@ -25,15 +25,15 @@ class MainController extends CoreController{
      /**
      * Method for the checkScore page
      */
-    public function checkScore($score)
+    public function checkScore()
     {
-      
+       
+      $score = $_POST['score'];// On récupère le score transmis en POST
       $newData = new Datas();
       $newData->setScore($score);
-      $newData->save();
-       
-      unset($_GET); // On vide la variable $_GET
-      $this->redirect("main-home"); // on redirrige vers la page d'accueil
+      $newData->save(); // On l'insère en BDD
+   
+       unset($_POST); // On vide la variable $_GET
    }
     
 }

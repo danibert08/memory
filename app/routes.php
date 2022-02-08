@@ -22,8 +22,8 @@ $this->addRoute(
 );
 
 $this->addRoute(
-   'GET', // HTTP Method
-   '/datas/[i:score]', // URL pattern
+   'POST', // HTTP Method
+   '/datas/', // URL pattern
    'MainController', // Controller name
    'checkScore', // Method name
    'main-checkScore' // => route's name (for URL generation)

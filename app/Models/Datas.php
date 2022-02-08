@@ -33,23 +33,23 @@ class Datas extends CoreModel {
         $tab = $ins->fetchAll();
             
         // Si l'on a un compteur à enregistrer, on le compare aux meilleurs temps
-       
-            for($i=0;$i<count($tab);$i++){
-                if($this->score < $tab[$i]['score']){ // On en le sauvegarde que s'il rentre dans les 5 meilleurs
-                    $score = $this->score;
-                    $insertQuery  = $pdo->prepare ( "
-                        INSERT INTO datas (score)
-                        VALUES (:score)"
-                        );
-                    $insertQuery->execute(array(":score"=>"{$score}"));
-                    break;
-                }
+          
+        for($i=0;$i<count($tab);$i++){
+            if($this->score < $tab[$i]['score']){ // On en le sauvegarde que s'il rentre dans les 5 meilleurs
+                $score = $this->score;
+                $insertQuery  = $pdo->prepare ( "
+                    INSERT INTO datas (score)
+                    VALUES (:score)"
+                    );
+                $insertQuery->execute(array(":score"=>"{$score}"));
+                break;
             }
+        }
         
     }
 
     protected function update() {
-        var_dump('update');exit;
+       
        
     }
 
