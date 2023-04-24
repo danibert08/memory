@@ -1,0 +1,166 @@
+
+html {
+   --cell-size: 100px;
+   --color-one: #000;
+   --color-two: #aaa;
+   --color-three: #fff;
+   --color-four: #666;
+   font-family: "Lucida Console", sans-serif;
+   text-align: center;
+   background-color: #6f6e6b;
+}
+
+/* On pense réduire la taille du jeu sur petits écrans*/
+@media (max-width : 750px){
+   html{
+   --cell-size: 50px;
+   }
+}
+
+h3 {
+   margin: 1rem 0 0.5rem;
+   font-size: 2rem;
+   font-weight: bold;
+   color: var(--color-one);
+}
+
+h6 {
+   margin: 0 0 1rem;
+}
+
+p {
+   margin: 1rem 0;
+}
+
+strong {
+   font-weight: bold;
+}
+
+#launch{
+   margin: 2em auto;
+}
+
+#grid {
+   font-size: 14px;
+   display: inline-block;
+   margin: 1rem 0 0;
+   border: 1px solid var(--color-one);
+}
+
+.row {
+   background-color: var(--color-two);
+   display: flex;
+  
+}
+
+.cell {
+   color: var(--color-one);
+   font-size: 1.2rem;
+   text-align: center;
+   width: var(--cell-size);
+   height: var(--cell-size);
+   line-height: var(--cell-size);
+   white-space: nowrap;
+   flex-grow: 1;
+   border-bottom: 1px solid var(--color-one);
+   border-right: 1px solid var(--color-one);
+}
+
+img{
+   width: 100%;
+}
+
+/* Stats */
+
+.stats{
+  background: var(--color-two);
+  width: 15%;
+  margin: 1rem  ;
+  padding: 1rem 0;
+}
+@media (max-width : 900px){
+   .stats{
+   width: 25%;
+   }
+}
+ .stats h4{
+    color: var(--color-three);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+ }
+
+ .stats ul li{
+   color: var(--color-three);
+   font-weight: bold;
+   margin-bottom: 1rem;
+}
+.stat{
+   display: flex;
+   justify-content: center;
+  
+}
+
+.champions{
+   display: flex;
+   justify-content: center;
+}
+
+/* themes */
+body.f0f {
+   --color-one: #ff00ff;
+   --color-two: #00ffff;
+   --color-three: #ff00fffd;
+   --color-four:#ffaa00;
+}
+
+body.black-and-white {
+   --color-one: #000;
+   --color-two: #fff;
+   --color-three: #000;
+   --color-four: #666;
+}
+
+body.terminal {
+
+   --color-one: #33ff00;
+   --color-two: #000;
+   --color-three: #33ff00;
+   --color-four: #ffbb00;
+}
+
+.theme{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#themeChange{
+   margin-left: 10px;
+}
+
+
+
+
+   /*  progress Bar*/
+#progressBar
+{
+	width:700px;
+	margin: 20px auto;
+}
+@media (max-width : 750px){
+  #progressBar{
+   width: 350px;
+   }
+}
+
+.bar
+{
+	color:#fff;
+	background-color:#2b579a;
+   width: 0;
+   border-radius: 10px;
+	height: 25px;
+	padding-top:15px;
+}
+
