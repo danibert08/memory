@@ -74,7 +74,7 @@ img{
 
 .stats{
   background: var(--color-two);
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   width: 15%;
   margin: 1rem  ;
   padding: 1rem 0;
@@ -82,6 +82,7 @@ img{
 @media (max-width : 900px){
    .stats{
    width: 40%;
+   font-size: 0.8rem;
    }
 }
  .stats h4{
