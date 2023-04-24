@@ -77,12 +77,12 @@ const game = {
 
    checkEnd: function(){
       if (game.imgElements.length == 28 ){
-         let name = prompt("Bravooooo !!! Vous avez gagné avec un temps de " + timing.count + " secondes !!! \n  Saisissez votre nom (12 caractères maxi): ");
+         let name = prompt("Bravooooo !!! Vous avez gagné avec un temps de " + timing.count + " secondes !!! \n  Saisissez votre nom (10 caractères maxi): ");
          if(name == ""){name = "anonyme"};
-         const re = new RegExp(/[^A-Za-z]/, "g");
+         const re = new RegExp(/[^A-Za-z0-9]/, "g");
          name = name.replaceAll(re , '');
          console.log(name)
-         if(name.length > 12){name = name.slice(0,12)};
+         if(name.length > 12){name = name.slice(0,10)};
         
          console.log(name);
          window.location.href = "/datas/" + timing.count + "/" + name;// On transmets compteur au fichier datas.php qui va l'enregistrer en bdd

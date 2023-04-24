@@ -17,14 +17,16 @@
          <ul class="champions">
             <li> 
                <?php
-                  for($i=0;$i<count($tab);$i++){
-                        if($tab[$i]["name"]){
-                           $name =  strtoupper($tab[$i]["name"]." ");
-                        }else{
-                           $name = "Faites mieux que : ";
-                        }
-                        echo $name . " " .  $tab[$i]["score"] . "<br />";
-                  }
+              for($i=0;$i<10;$i++){
+               if($monthTab[$i]["name"]){
+                  $name =  strtoupper($monthTab[$i]["name"]." ");
+                  $score = $monthTab[$i]["score"];
+               }else{
+                  $name = "A battre : ";
+                  $score = 99;
+               }
+               echo $name . " " . $score  . "<br />";
+            }
                ?> 
             </li>
             
@@ -35,8 +37,15 @@
          <ul>
                <li> 
                   <?php
-                     for($i=0;$i<count($tab);$i++){
-                           echo  $tab[$i]["name"] . " " . $tab[$i]["score"] . "<br />";
+                     for($i=0;$i<10;$i++){
+                        if($tab[$i]["name"]){
+                           $name =  strtoupper($tab[$i]["name"]." ");
+                           $score = $tab[$i]["score"];
+                        }else{
+                           $name = "A battre : ";
+                           $score = 99;
+                        }
+                        echo $name . " " .  $score . "<br />";
                      }
                   ?> 
                </li>

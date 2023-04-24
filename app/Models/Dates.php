@@ -14,6 +14,7 @@ class Dates  {
    
 
     public static function frenchDate() {
+
        $dateMonth = date('M');
        $dateYear = date('Y');
        $transformDate = [

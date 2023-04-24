@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Utils\Database;
+use App\Models\Dates;
 use PDO;
 
 // Mdoel for the table "example"
@@ -10,19 +11,23 @@ class Datas extends CoreModel {
     // here I should define every field as a property
     protected $score;
     protected $name;
+    protected $date;
     // etc.
 
    
 
     public static function findAll() {
+       
        //On récupère les meilleurs temps
         $pdo =Database::getPDO();
-        $ins = $pdo->prepare("select * from datas order by score limit 10");
+        $ins = $pdo->prepare("select * from datas order by score limit 10 ");
         $ins->setFetchMode(PDO::FETCH_ASSOC);
         $ins->execute(); 
         $result = $ins->fetchAll();
+
        return $result;
     }
+
 
     protected function insert() {
        
@@ -36,14 +41,17 @@ class Datas extends CoreModel {
         // Si l'on a un compteur à enregistrer, on le compare aux meilleurs temps
             
             for($i=0;$i<count($tab);$i++){
-                if($this->score < $tab[$i]['score']){ // On en le sauvegarde que s'il rentre dans les 5 meilleurs
+                if($this->score < $tab[$i]['score']){ // On en le sauvegarde que s'il rentre dans les 10 meilleurs
                     $score = $this->score;
                     $name = $this->name;
+                    $createdAt = new Dates(); 
+                    $date = $createdAt->frenchDate();
+                   
                     $insertQuery  = $pdo->prepare ( "
-                        INSERT INTO datas (score, name)
-                        VALUES (:score, :name)"
+                        INSERT INTO datas (score, name, date)
+                        VALUES (:score, :name, :date)"
                         );
-                    $insertQuery->execute(array(":score"=>"{$score}", ":name"=>"{$name}"));
+                    $insertQuery->execute(array(":date"=>"{$date}", ":score"=>"{$score}", ":name"=>"{$name}"));
                     break;
                 }
             }
@@ -99,6 +107,26 @@ class Datas extends CoreModel {
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of date
+     */ 
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set the value of date
+     *
+     * @return  self
+     */ 
+    public function setDate($date)
+    {
+        $this->date = $date;
 
         return $this;
     }

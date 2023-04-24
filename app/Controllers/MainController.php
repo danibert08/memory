@@ -16,11 +16,22 @@ class MainController extends CoreController{
         $tab = Datas::findAll();
         $date = new Dates();
         $frenchDate = $date->frenchDate();
+     
+        $monthTab = [];
         
+        for($i=0;$i<count($tab);$i++){
+            if($tab[$i]["date"] == $frenchDate){
+               $monthTab[] = $tab[$i];
+            }
+         }
+
         // For now, this page only needs the view
         $this->show('game', [
             'tab' => $tab,
             'date'=> $frenchDate,
+            'monthTab' => $monthTab,
+           
+            
         ]);
     }
 
