@@ -4,7 +4,7 @@ html {
    --color-one: #000;
    --color-two: #aaa;
    --color-three: #fff;
-   --color-four: #666;
+   --color-four: #d21212;
    font-family: "Lucida Console", sans-serif;
    text-align: center;
    background-color: #6f6e6b;
@@ -22,6 +22,10 @@ h3 {
    font-size: 2rem;
    font-weight: bold;
    color: var(--color-one);
+}
+h2 {
+   padding-right: 1rem;
+   
 }
 
 h6 {
@@ -44,7 +48,7 @@ strong {
    font-size: 14px;
    display: inline-block;
    margin: 1rem 0 0;
-   border: 1px solid var(--color-one);
+   border: 1px solid var(--color-four);
 }
 
 .row {
@@ -109,10 +113,17 @@ img{
 }
 
 /* themes */
-body.f0f {
+/* body.f0f {
    --color-one: #ff00ff;
    --color-two: #00ffff;
    --color-three: #ff00fffd;
+   --color-four:#ffaa00;
+} */
+
+body.f0f {
+   --color-one: #073be7;
+   --color-two: #0da3a3;
+   --color-three: #094aeffd;
    --color-four:#ffaa00;
 }
 
@@ -120,7 +131,7 @@ body.black-and-white {
    --color-one: #000;
    --color-two: #fff;
    --color-three: #000;
-   --color-four: #666;
+   --color-four: #bd3939;
 }
 
 body.terminal {
@@ -132,13 +143,17 @@ body.terminal {
 }
 
 .theme{
+   width: 100%;
    display: flex;
    justify-content: center;
    align-items: center;
+   
 }
 
 #themeChange{
-   margin-left: 10px;
+   width: 100%;
+   margin-left: 1rem;
+   background-color: var(--color-four);
 }
 
 

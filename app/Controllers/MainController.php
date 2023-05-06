@@ -22,7 +22,7 @@ class MainController extends CoreController{
         for($i=0;$i<count($tab);$i++){
             if($tab[$i]["date"] == $frenchDate){
                $monthTab[] = $tab[$i];
-            }
+            } 
          }
 
         // For now, this page only needs the view

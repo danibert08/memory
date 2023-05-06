@@ -81,10 +81,10 @@ const game = {
          if(name == ""){name = "anonyme"};
          const re = new RegExp(/[^A-Za-z0-9]/, "g");
          name = name.replaceAll(re , '');
-         console.log(name)
+
          if(name.length > 12){name = name.slice(0,10)};
         
-         console.log(name);
+   
          window.location.href = "/datas/" + timing.count + "/" + name;// On transmets compteur au fichier datas.php qui va l'enregistrer en bdd
          game.resetAll();
       }

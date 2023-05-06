@@ -13,7 +13,7 @@ const timing = {
    },
 
    timer: function(){// On place un écouteur d'évènement "click" sur chaque case du jeu
-      
+         game.resetAll();
          timing.countUp = setInterval(timing.displayCount, 1000); //On lance le compteur de temps en seconde
          timing.barUp = setInterval(timing.displayProgressBar, 1000); // on lance la progress bar
          

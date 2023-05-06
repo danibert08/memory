@@ -18,15 +18,15 @@
             <li> 
                <?php
               for($i=0;$i<10;$i++){
-               if($monthTab[$i]["name"]){
-                  $name =  strtoupper($monthTab[$i]["name"]." ");
-                  $score = $monthTab[$i]["score"];
-               }else{
-                  $name = "A battre : ";
-                  $score = 99;
+                  if($monthTab[$i]["name"]){
+                     $name =  strtoupper($monthTab[$i]["name"]." ");
+                     $score = $monthTab[$i]["score"];
+                  }else{
+                     $name = "A battre : ";
+                     $score = 99;
+                  }
+                  echo $name . " " . $score  . "<br />";
                }
-               echo $name . " " . $score  . "<br />";
-            }
                ?> 
             </li>
             
@@ -53,7 +53,7 @@
       </div>
    </div>
     <div class="theme">
-        <h2>Thème</h2>
+        <h2>Thème : </h2>
         <div>
         <select name="theme" id="themeChange">
             <option value="default" id="">Défaut</option>

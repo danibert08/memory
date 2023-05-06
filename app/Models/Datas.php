@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use App\Utils\Database;
-use App\Models\Dates;
 use PDO;
+use App\Models\Dates;
+use App\Utils\Database;
+use App\Models\CoreModel;
 
 // Mdoel for the table "example"
 class Datas extends CoreModel {
@@ -20,7 +21,7 @@ class Datas extends CoreModel {
        
        //On récupère les meilleurs temps
         $pdo =Database::getPDO();
-        $ins = $pdo->prepare("select * from datas order by score limit 10 ");
+        $ins = $pdo->prepare("select * from datas order by score ");
         $ins->setFetchMode(PDO::FETCH_ASSOC);
         $ins->execute(); 
         $result = $ins->fetchAll();
@@ -37,22 +38,42 @@ class Datas extends CoreModel {
         $ins->setFetchMode(PDO::FETCH_ASSOC);
         $ins->execute(); 
         $tab = $ins->fetchAll();
+
+        $toDay = new Dates();
+        $date = $toDay->frenchDate();
+        $monthTab = [];
+        
+        for($i=0;$i<count($tab);$i++){
+            if($tab[$i]["date"] == $date){
+               $monthTab[] = $tab[$i];
+            }
+         }
+
             
         // Si l'on a un compteur à enregistrer, on le compare aux meilleurs temps
+            if(count($monthTab)<10){
             
-            for($i=0;$i<count($tab);$i++){
-                if($this->score < $tab[$i]['score']){ // On en le sauvegarde que s'il rentre dans les 10 meilleurs
-                    $score = $this->score;
-                    $name = $this->name;
-                    $createdAt = new Dates(); 
-                    $date = $createdAt->frenchDate();
-                   
-                    $insertQuery  = $pdo->prepare ( "
-                        INSERT INTO datas (score, name, date)
-                        VALUES (:score, :name, :date)"
-                        );
-                    $insertQuery->execute(array(":date"=>"{$date}", ":score"=>"{$score}", ":name"=>"{$name}"));
-                    break;
+                $score = $this->score;
+                $name = $this->name;
+                $insertQuery  = $pdo->prepare ("
+                    INSERT INTO datas (score, name, date)
+                    VALUES (:score, :name, :date)"
+                    );
+                $insertQuery->execute(array(":score"=>"{$score}", ":name"=>"{$name}", ":date"=>"{$date}"));
+                    
+            }else{
+                for($i=0;$i<count($monthTab);$i++){
+                    if($this->score < $tab[$i]['score']){ // On en le sauvegarde que s'il rentre dans les 10 meilleurs
+                        $score = $this->score;
+                        $name = $this->name;
+                    
+                        $insertQuery  = $pdo->prepare ( "
+                            INSERT INTO datas (score, name, date)
+                            VALUES (:score, :name, :date)"
+                            );
+                        $insertQuery->execute(array(":score"=>"{$score}", ":name"=>"{$name}", ":date"=>"{$date}"));
+                        break;
+                    }
                 }
             }
         
