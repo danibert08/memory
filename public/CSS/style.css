@@ -4,7 +4,7 @@ html {
    --color-one: #000;
    --color-two: #aaa;
    --color-three: #fff;
-   --color-four: #d21212;
+   --color-four: #666;
    font-family: "Lucida Console", sans-serif;
    text-align: center;
    background-color: #6f6e6b;
@@ -113,25 +113,19 @@ img{
 }
 
 /* themes */
-/* body.f0f {
+ body.f0f {
    --color-one: #ff00ff;
    --color-two: #00ffff;
    --color-three: #ff00fffd;
    --color-four:#ffaa00;
-} */
+} 
 
-body.f0f {
-   --color-one: #073be7;
-   --color-two: #0da3a3;
-   --color-three: #094aeffd;
-   --color-four:#ffaa00;
-}
 
 body.black-and-white {
    --color-one: #000;
    --color-two: #fff;
    --color-three: #000;
-   --color-four: #bd3939;
+   --color-four: #666;
 }
 
 body.terminal {
@@ -139,7 +133,7 @@ body.terminal {
    --color-one: #33ff00;
    --color-two: #000;
    --color-three: #33ff00;
-   --color-four: #ffbb00;
+   --color-four: #666;
 }
 
 .theme{
