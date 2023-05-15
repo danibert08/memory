@@ -11,7 +11,7 @@ Mettre en oeuvre des compétences tout en commentant clairement le code dans une
 
 ## Jouer en local
 
-Pour jouer en local, cloner le projet, installer composer si nécessaire, puis lancer un 'composer install' , et renseigner les infos de bdd dans le dossier app/config.ini, par exemple :
+Pour jouer en local, cloner le projet, installer composer si nécessaire, puis lancer un 'composer install' , et renseigner les infos de bdd dans un dossier app/config.ini, par exemple :
 
 DB_HOST ="127.0.0.1"
 DB_NAME="memory"
