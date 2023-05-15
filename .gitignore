@@ -2,3 +2,4 @@
 /app/config.ini
 composer.lock
 /vendor
+config.ini
