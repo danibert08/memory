@@ -7,7 +7,7 @@ Développement en HTML, CSS, JS et PHP, sans framework
 
 ## Objectif
 
-Mettre en oeuvre des compétences tout en commentant clairement le code dans une éventuelle utilisation pédagogique
+Mettre en oeuvre des compétences tout en commentant clairement le code.
 
 ## Jouer en local
 
