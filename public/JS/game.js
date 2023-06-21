@@ -91,6 +91,8 @@ const game = {
    },
 
    resetAll: function() {
+      timing.button.textContent = "Lancer une partie"
+      timing.button.classList.remove("launch")
       clearInterval(timing.barUp)
       clearInterval(timing.countUp);
       for(let cell of game.cells){

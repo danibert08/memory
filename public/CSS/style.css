@@ -5,6 +5,7 @@ html {
    --color-two: #aaa;
    --color-three: #fff;
    --color-four: #666;
+   --color-five: blue;
    font-family: "Lucida Console", sans-serif;
    text-align: center;
    background-color: #6f6e6b;
@@ -42,6 +43,25 @@ strong {
 
 #launch{
    margin: 2em auto;
+}
+.launch{
+   animation-name: zoom;
+   animation-duration: 3s;
+   background-color: var(--color-five);
+      color: white;
+      border: none;
+}
+
+@keyframes zoom{
+   from{
+      transform: scale(1);
+      
+      
+   }
+   to{
+       transform: scale(2);
+       
+   }
 }
 
 #grid {
@@ -118,6 +138,7 @@ img{
    --color-two: #00ffff;
    --color-three: #ff00fffd;
    --color-four:#ffaa00;
+   --color-five: red;
 } 
 
 
@@ -126,6 +147,7 @@ body.black-and-white {
    --color-two: #fff;
    --color-three: #000;
    --color-four: #666;
+   --color-five: black;
 }
 
 body.terminal {
@@ -134,6 +156,7 @@ body.terminal {
    --color-two: #000;
    --color-three: #33ff00;
    --color-four: #666;
+   --color-five: green;
 }
 
 .theme{
