@@ -18,15 +18,16 @@
             <li> 
                <?php
               for($i=0;$i<10;$i++){
-                  if($monthTab[$i]["name"]){
-                     $name =  strtoupper($monthTab[$i]["name"]." ");
-                     $score = $monthTab[$i]["score"];
-                  }else{
+                  if($monthTab == null or count($monthTab) <= $i){
                      $name = "A battre : ";
                      $score = 99;
-                  }
+                  }else{
+                     $name =  strtoupper($monthTab[$i]["name"]." ");
+                     $score = $monthTab[$i]["score"];
+                   }
+                    
                   echo $name . " " . $score  . "<br />";
-               }
+               }    
                ?> 
             </li>
             
@@ -36,14 +37,15 @@
          <h4><u>Meilleurs scores</u></h4>
          <ul>
                <li> 
-                  <?php
+                  <?php 
                      for($i=0;$i<10;$i++){
-                        if($tab[$i]["name"]){
-                           $name =  strtoupper($tab[$i]["name"]." ");
-                           $score = $tab[$i]["score"];
-                        }else{
+                        if($tab == null or count($tab) <= $i){
                            $name = "A battre : ";
                            $score = 99;
+                        }
+                        else{
+                           $name =  strtoupper($tab[$i]["name"]." ");
+                           $score = $tab[$i]["score"];
                         }
                         echo $name . " " .  $score . "<br />";
                      }
